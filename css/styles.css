@@ -82,7 +82,7 @@ h2, h3, h4, h5, h6, legend {
 #menu a {
   color: var(--color-texto-secundario);
   text-decoration: none;
-  transition: var(--color-acento) 0.2s ease;
+  transition: color 0.2s ease;
 }
 
 #menu a.activo {
@@ -135,7 +135,6 @@ header a, footer a {
 }
 
 header {
-
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
@@ -144,9 +143,10 @@ header {
   background-color: var(--color-primario);
   color: var(--color-blanco);
   padding: 2rem;
-  border: radius 0;
+  border-radius: 0;
   margin-top: 3rem;
 }
+
 header.header-bloque {
   flex:1;
   min-width: 200px;
@@ -236,7 +236,7 @@ header.header-bloque a {
     padding: 1.5rem;
     margin-bottom: 2rem;
     flex:1;
-    min-width:220px
+    min-width:220px;
   }
 .tarjeta-servicio img {
   width: 100%;
@@ -245,7 +245,7 @@ header.header-bloque a {
   border-radius: 8px;
   padding: 1.5rem;
   margin-top: 1rem;
-  margin-bottom:1 rem;
+  margin-bottom: 1rem;
   display: block;
 }
 .tarjeta-destacada {
@@ -307,7 +307,7 @@ footer {
   padding: 3rem 2rem;
   border-radius:0;
   margin-top: 3rem;
-  text-align:left;
+  text-align: left;
 }
 footer .logo-footer {
   width: 120px;      
@@ -338,20 +338,10 @@ footer .footer-bloque a {
 /* =================================================================
 8. TABLAS (Lectura mejorada y alto contraste)
    ================================================================ */
-table {
-  width: 100%;
-  border-collapse:collapse;
-  margin: 2rem 0;
-}
-th, td {
-  padding: 1rem;
-  border: 1px solid var(--color-texto-secundario);
-  text-align: left
-}
-th {
-  background-color: var(--color-primario);
-  color: var(--color-blanco);
-  font-family: var(--fuente-titulos);
+.table thead {
+  --bs-table-bg: var(--color-primario);
+  --bs-table-color: var(--color-blanco);
+  --bs-table-border-color: var(--color-texto-secundario);
 }
 
 /* =================================================================
@@ -419,6 +409,27 @@ p.grupo-terminos label {
   margin-bottom:0;
   font-weight: normal;
 }
+
+.form-control, .form-select, .form-check-input { margin-bottom: 0; }
+.form-check-input { padding: 0; }
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--color-secundario);
+  box-shadow: 0 0 0 0.25rem rgba(30, 122, 79, 0.25);
+}
+
+.form-check-input:checked {
+  background-color: var(--color-secundario);
+  border-color: var(--color-secundario);
+}
+
+.btn-dark {
+  --bs-btn-bg: var(--color-primario);
+  --bs-btn-border-color: var(--color-primario);
+  --bs-btn-hover-bg: #0d1730;
+  --bs-btn-hover-border-color: #0d1730;
+  --bs-btn-active-bg: #0d1730;
+}
 /* =================================================================
 11. BOTONES (Componentes Interactivos y CTA)
    ================================================================ */
@@ -483,7 +494,7 @@ button[type="submit"],
 @media(max-width: 768px) {
   header {
     margin:1rem;
-    width: calc(100%-2rem);
+    width: calc(100% - 2rem);
     border-radius: 8px;
 
   }
@@ -491,7 +502,7 @@ button[type="submit"],
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
-    text-align: center
+    text-align: center;
   }
   .portada img {
     width: 100%;
@@ -512,15 +523,21 @@ button[type="submit"],
   width: 100%;
   table-layout: fixed;
   margin: 2rem 0;
+  }
+  th, td {
+    padding: 0.4rem;
+    font-size: 0.8rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
 }
-th, td {
-  padding: 0.4rem;
-  font-size: 0.8rem;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-  hyphens: auto;
+  .contenedor-principal{
+    padding: 0.5rem;
 }
-}
-.contenedor-principal{
-  padding: 0.5rem;
-}
+  .btn-reservar {
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.6rem 1.1rem;
+    font-size: 14px;
+  }
